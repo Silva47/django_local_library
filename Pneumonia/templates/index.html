@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Home page</title>
+
+  <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    .center {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(230, 239, 245);
+    }
+  </style>
+</head>
+
+
+<body class="center">
+
+  <h1 style="color:rgb(44, 44, 90); font-weight: 700;">
+    <i class="fas fa-user-md"></i> Pneumonia Detector
+  </h1>
+
+
+  <form action="result/" method ="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+  <fieldset>
+    <legend>Select the Model Type:</legend>
+
+    <div>
+      <input type="radio" id="cnn" name="model" value="cnn"
+             checked>
+      <label for="cnn">CNN</label>
+    </div>
+
+    <div>
+      <input type="radio" id="svm" name="model" value="svm">
+      <label for="svm">SVM</label>
+    </div>
+
+</fieldset>
+
+  <p style="color:rgb(51, 51, 83); font-weight: 700;">
+    Please provide the Patient's info, select symptoms and Upload Image
+  </p>
+
+  
+   <div class="form-group">
+      <input class="form-control" placeholder="Age" required type="text" name="age">
+    </div>
+
+<div label="Symptoms1" class="publication-tag__checkbox">
+<p><label for="check">Fever:</label> <input type="checkbox" name="symptoms1" {% if article.published %}checked{% endif %} />
+</div> 
+
+<div label="Symptoms2" class="publication-tag__checkbox">
+<p><label for="check">Chest Pain:</label> <input type="checkbox" name="symptoms2" {% if article.published %}checked{% endif %} />
+</div>
+
+<div label="Symptoms3" class="publication-tag__checkbox">
+<p><label for="check">Fatigue:</label> <input type="checkbox" name="symptoms3" {% if article.published %}checked{% endif %} />
+</div>
+
+<div label="Symptoms4" class="publication-tag__checkbox">
+<p><label for="check">High body temperature:</label> <input type="checkbox" name="symptoms4" {% if article.published %}checked{% endif %} />
+</div>
+
+<div label="Symptoms5" class="publication-tag__checkbox">
+<p><label for="check">Nausea:</label> <input type="checkbox" name="symptoms5" {% if article.published %}checked{% endif %} />
+</div>
+
+<div label="Symptoms6" class="publication-tag__checkbox">
+<p><label for="check">Shortness of breath:</label> <input type="checkbox" name="symptoms6" {% if article.published %}checked{% endif %} />
+</div>
+
+<div label="Symptoms7" class="publication-tag__checkbox">
+<p><label for="check">Runny nose:</label> <input type="checkbox" name="symptoms7" {% if article.published %}checked{% endif %} />
+</div> 
+
+<div label="Symptoms8" class="publication-tag__checkbox">
+<p><label for="check">None of the above:</label> <input type="checkbox" name="symptoms8" {% if article.published %}checked{% endif %} />
+</div>
+
+    <input type="file" name="image" />
+    
+    <br>
+    <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="Upload" />
+</form>
+
+    
+</body>
+
+</html>
