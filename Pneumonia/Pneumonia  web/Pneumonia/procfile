@@ -1,0 +1,1 @@
+web: gunicorn pneumonia.wsgi --log-file -
